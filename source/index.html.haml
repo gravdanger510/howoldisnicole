@@ -1,11 +1,30 @@
 ---
-title: Page Title
+title: Nicole's age
 ---
 
-.delete-me
-  .container
-    %h1 thoughtbot Middleman Starter
-    %p
-      You're all set!
-      <a href="http://github.com/thoughtbot/proteus-middleman">Let's get started</a>
-      building your prototype.
+%main.main
+  %h1
+    Nicole has been alive for
+    %span#years
+    years.
+
+:javascript
+  var nicoleDate = new Date(1996, 11, 6, 4, 30),
+      today = new Date()
+      difference = today.getTime() - nicoleDate.getTime(),
+      milliSecondsPerDay = 1000 * 60 * 60 * 24,
+      differenceInDays = difference/milliSecondsPerDay
+      yearsAlive = differenceInDays/365.25,
+      ageSpan = document.getElementById("years");
+
+  ageSpan.innerHTML = Math.round(yearsAlive * 100) / 100;
+  document.getElementById("math-days").innerHTML = Math.floor(differenceInDays);
+
+:javascript
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79601417-1', 'auto');
+  ga('send', 'pageview');
