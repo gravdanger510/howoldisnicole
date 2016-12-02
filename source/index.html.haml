@@ -20,7 +20,7 @@ title: Nicole's age
       difference = today.getTime() - nicoleDate.getTime(),
       milliSecondsPerDay = 1000 * 60 * 60 * 24,
       differenceInDays = difference/milliSecondsPerDay
-      yearsAlive = differenceInDays/365,
+      yearsAlive = differenceInDays/365.25,
       ageSpan = document.getElementById("years");
 
   ageSpan.innerHTML = Math.round(yearsAlive * 100) / 100;
